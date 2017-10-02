@@ -42,8 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionarySample\Employee.cs" />
+    <Compile Include="DictionarySample\EmployeeId.cs" />
+    <Compile Include="LinkedListSample\Documents.cs" />
+    <Compile Include="LinkedListSample\PriorityDocumentManager.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueSample\Document.cs" />
+    <Compile Include="QueueSample\DocumentManager.cs" />
+    <Compile Include="QueueSample\ProcessDocuments.cs" />
+    <Compile Include="Racer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
