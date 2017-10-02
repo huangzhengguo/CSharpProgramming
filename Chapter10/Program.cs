@@ -5,8 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Chapter10.QueueSample;
 using System.Threading;
+using System.Collections.Immutable;
 using Chapter10.LinkedListSample;
 using Chapter10.DictionarySample;
+using Chapter10.ObservableCollectionSample;
+using Chapter10.BitVector32Sample;
+using Chapter10.ImmutableCollectionsSample;
+using Chapter10.PipelineSample;
 
 namespace Chapter10
 {
@@ -17,8 +22,12 @@ namespace Chapter10
             // MyListMethod();
             // MyQueueMethod();
             // MyLinkedListMethod();
-            MyDictionaryMethod();
+            // MyDictionaryMethod();
+            // ObservableCollectionSample.ObservableCollectionSample.ObservableCollectionSampleMethod();
 
+            // BitVector32Samples.BitVector32SampleMethod();
+            // MyImmutableCollectionMethod();
+            MyPipeline.StartPipeline();
             Console.ReadLine();
         }
 
@@ -135,6 +144,47 @@ namespace Chapter10
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        // 4.不变的集合
+        static void MyImmutableCollectionMethod()
+        {
+            List<Account> accounts = new List<Account>()
+            {
+                new Account()
+                {
+                    Name="Scrooge McDuck",
+                    Amount=667377678765m
+                },
+                new Account()
+                {
+                    Name="Donald Duck",
+                    Amount=-20m
+                },
+                new Account()
+                {
+                    Name="Ludwig von Drake",
+                    Amount=20000m
+                }
+            };
+
+            ImmutableList<Account> immutableAccounts = accounts.ToImmutableList();
+
+            ImmutableList<Account>.Builder builder = immutableAccounts.ToBuilder();
+            for(int i = 0; i < builder.Count; i++)
+            {
+                Account a = builder[i];
+                if (a.Amount > 0)
+                {
+                    builder.Remove(a);
+                }
+            }
+
+            ImmutableList<Account> overdrawnAccounts = builder.ToImmutable();
+            foreach(var item in overdrawnAccounts)
+            {
+                Console.WriteLine("{0} {1}", item.Name, item.Amount);
             }
         }
     }
