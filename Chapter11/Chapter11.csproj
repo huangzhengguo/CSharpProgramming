@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81A92F18-032F-4086-8075-75EE0AD9DD87}</ProjectGuid>
+    <ProjectGuid>{77EEE384-735D-4153-9843-0471D272CBC5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Chapter10</RootNamespace>
-    <AssemblyName>Chapter10</AssemblyName>
+    <RootNamespace>Chapter11</RootNamespace>
+    <AssemblyName>Chapter11</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,41 +33,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitVector32Sample\BitVector32Sample.cs" />
-    <Compile Include="DictionarySample\Employee.cs" />
-    <Compile Include="DictionarySample\EmployeeId.cs" />
-    <Compile Include="ImmutableCollectionsSample\Account.cs" />
-    <Compile Include="LinkedListSample\Documents.cs" />
-    <Compile Include="LinkedListSample\PriorityDocumentManager.cs" />
-    <Compile Include="ObservableCollectionSample\ObservableCollectionSample.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PipelineSample\ConcurrentDictionaryExtensions.cs" />
-    <Compile Include="PipelineSample\ConsoleHelper.cs" />
-    <Compile Include="PipelineSample\Info.cs" />
-    <Compile Include="PipelineSample\MyPipeline.cs" />
-    <Compile Include="PipelineSample\PipelineStages.cs" />
+    <Compile Include="ParallelLinq.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueueSample\Document.cs" />
-    <Compile Include="QueueSample\DocumentManager.cs" />
-    <Compile Include="QueueSample\ProcessDocuments.cs" />
-    <Compile Include="Racer.cs" />
+    <Compile Include="RacerInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLib\DataLib.csproj">
+      <Project>{f53186b1-2631-4287-9a1d-c8b3d4144240}</Project>
+      <Name>DataLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
