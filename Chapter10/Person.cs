@@ -12,6 +12,7 @@ namespace Chapter10
         private string name;
         public Person(string name)
         {
+            Console.WriteLine("实例化person类");
             this.name = name;
         }
 
