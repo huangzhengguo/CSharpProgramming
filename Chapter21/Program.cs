@@ -27,7 +27,9 @@ namespace Chapter21
             // MyThreadPoolClass.ThreadPoolMethod();
             // MyThreadClass.CreateNewThread();
             // MyThreadClass.ParameterMethod();
-            MyThreadClass.BackgroundThread();
+            // MyThreadClass.BackgroundThread();
+            // MyThreadClass.RaceCondition();
+            MySyncClass.LockMethod();
 
 
             Console.ReadLine();

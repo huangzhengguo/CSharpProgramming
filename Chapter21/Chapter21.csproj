@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyCancelClass.cs" />
+    <Compile Include="MyEventClass.cs" />
+    <Compile Include="MySyncClass.cs" />
     <Compile Include="MyTaskClass.cs" />
     <Compile Include="MyThreadClass.cs" />
     <Compile Include="MyThreadPoolClass.cs" />

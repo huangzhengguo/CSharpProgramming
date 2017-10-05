@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -81,6 +82,49 @@ namespace Chapter21
             Console.WriteLine("Thread {0} started", Thread.CurrentThread.Name);
             Thread.Sleep(3000);
             Console.WriteLine("Thread {0} completed", Thread.CurrentThread.Name);
+        }
+
+        // 线程问题
+        // 1.争用条件
+        public class StateObject
+        {
+            private int state = 5;
+            public void ChangeState(int loop)
+            {
+                if (state == 5)
+                {
+                    state++;
+                    Trace.Assert(state == 6, "Race condition occurred after " + loop + " loops");
+                }
+                state = 5;
+            }
+        }
+
+        public class SampleTask
+        {
+            public void RaceCondition(object o)
+            {
+                Trace.Assert(o is object, "o must be of type StateObject");
+                StateObject state = o as StateObject;
+
+                int i = 0;
+                while (true)
+                {
+                    lock (state)
+                    {
+                        state.ChangeState(i++);
+                    }
+                }
+            }
+        }
+
+        public static void RaceCondition()
+        {
+            var state = new StateObject();
+            for (int i = 0; i < 2; i++)
+            {
+                Task.Run(() => new SampleTask().RaceCondition(state));
+            }
         }
     }
 }
